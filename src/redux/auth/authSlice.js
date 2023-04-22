@@ -3,14 +3,14 @@ import {
   register,
   login,
   logout,
-  fetchCurrentUser,
+  refreshUser,
 } from './authOperations';
 
 const authInitialState = {
   user: { name: null, email: null },
   token: null,
   isLoggedIn: false,
-  isFetchingCurrentUser: false,  
+  isFetchingCurrentUser: false,
 };
 
 export const authSlice = createSlice({
@@ -41,16 +41,16 @@ export const authSlice = createSlice({
         state.isLoggedIn = false;
       })
 
-      // fetchCurrentUser
-      .addCase(fetchCurrentUser.pending, (state, _) => {        
+      // refreshUser
+      .addCase(refreshUser.pending, (state, _) => {        
         state.isRefreshing = true;        
       })
-      .addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {        
+      .addCase(refreshUser.fulfilled, (state, { payload }) => {        
         state.user = payload;  
         state.isLoggedIn = true;  
         state.isRefreshing = false;  
       })
-      .addCase(fetchCurrentUser.rejected, (state, _) => {        
+      .addCase(refreshUser.rejected, (state, _) => {        
         state.isRefreshing = false;        
       })
   },

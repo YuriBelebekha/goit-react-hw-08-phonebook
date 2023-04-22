@@ -51,7 +51,7 @@ export const logout = createAsyncThunk(
 });
 
 // GET - '/users/current' - Get information about the current user
-export const fetchCurrentUser = createAsyncThunk(
+export const refreshUser = createAsyncThunk(
   'auth/refresh',
   async (_, { rejectWithValue, getState }) => { // thunkAPI.getState();
     const state = getState();

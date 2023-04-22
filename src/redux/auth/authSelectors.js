@@ -1,3 +1,3 @@
 export const selectIsLoggedIn = state => state.auth.isLoggedIn;
-export const selectUserName = state => state.auth.user.name;
-export const selectFetchingCurrent = state => state.auth.isFetchingCurrentUser;
+export const selectUser = state => state.auth.user;
+export const selectIsRefreshing = state => state.auth.isRefreshing;
