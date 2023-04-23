@@ -16,6 +16,7 @@ const authInitialState = {
 export const authSlice = createSlice({
   name: 'auth',
   initialState: authInitialState,  
+
   extraReducers: (builder) => {    
     builder
       // register

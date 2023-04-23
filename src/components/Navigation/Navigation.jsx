@@ -1,17 +1,18 @@
 import { NavLink } from 'react-router-dom';
 import { useAuth } from 'hooks';
 
-export const Navigation = () => {
-  const { isLoggedIn } = useAuth();
+export const Navigation = () => { 
+  const { isLoggedIn } = useAuth();  
 
   return (
-    <nav>
-      <NavLink to="/">
-        Home
-      </NavLink>
-      {isLoggedIn && (
+    <nav>      
+      {isLoggedIn ? (
         <NavLink to="/contacts">
           Contacts
+        </NavLink>
+      ) : (
+        <NavLink to="/">
+          Home
         </NavLink>
       )}
     </nav>

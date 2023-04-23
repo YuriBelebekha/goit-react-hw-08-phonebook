@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 import { ToastOptions } from 'services/toast-options';
 import css from './ContactsListItem.module.css';
 
-const ContactsListItem = ({ id, name, phone }) => {
+const ContactsListItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
   const deleteContactData = (id) => dispatch(deleteContact(id));
 
@@ -28,7 +28,7 @@ const ContactsListItem = ({ id, name, phone }) => {
   
   return (    
     <li className={css.contactListItem} >
-      <p>{name} - &#9743; {phone}</p>
+      <p>{name} - &#9743; {number}</p>
       <div>
         <button
           type='button'

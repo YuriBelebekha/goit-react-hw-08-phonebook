@@ -14,23 +14,23 @@ function ContactForm() {
   const addContactData = data => { dispatch(addContact(data)) };
   
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');  
+  const [number, setNumber] = useState('');  
   
   const handleChange = e => {
     const { name, value } = e.currentTarget;
-
+    
     switch (name) {
       case 'name':
         setName(value);
         break;
       
       case 'number':
-        setPhone(value);
+        setNumber(value);
         break;
       
       default:
         return;
-    };
+    };    
   };  
 
   const handleSubmit = e => {
@@ -38,8 +38,8 @@ function ContactForm() {
     const contact = {
       id: shortid.generate(),
       name,
-      phone,
-    };
+      number,
+    };    
     
     const checkDuplicateContact = contacts.some(contact =>
       contact.name.toLocaleLowerCase() === name.toLocaleLowerCase()
@@ -51,14 +51,14 @@ function ContactForm() {
     if (!checkDuplicateContact) {
       setTimeout(() => {
         toast.success(`${name.toUpperCase()} added to phonebook`, ToastOptions);
-      }, 100);
+      }, 100);      
       addContactData(contact);      
     } else {
       toast.error('Something went wrong... :(', ToastOptions);
     }
     
     setName('');
-    setPhone('');
+    setNumber('');
   };
   
   return (
@@ -86,7 +86,7 @@ function ContactForm() {
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          value={phone}
+          value={number}
           onChange={handleChange}
           required            
         />
