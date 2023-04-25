@@ -1,6 +1,9 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+
 const Register = () => {
   return (
     <HelmetProvider>
@@ -8,9 +11,19 @@ const Register = () => {
         <title>Registration</title>
       </Helmet>
 
-      <h1>Registration Form</h1>
+      <Box sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          m: '80px 10px 50px auto',
+          maxWidth: '500px',
+          color: '#fff'
+      }}>
+        <Typography variant='h5' component='h1' sx={{ fontWeight: 'bold', color: '#00f4ff', mb: '45px' }}> 
+          Registration Form
+        </Typography>
 
-      <RegisterForm />
+        <RegisterForm />
+      </Box>
     </HelmetProvider>
   )
 };

@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contacts/contactsOperations';
 import { toast } from 'react-toastify';
 import { ToastOptions } from 'services/toast-options';
-import css from './ContactsListItem.module.css';
 
 const ContactsListItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
@@ -27,7 +26,7 @@ const ContactsListItem = ({ id, name, number }) => {
   };
   
   return (    
-    <li className={css.contactListItem} >
+    <li>
       <p>{name} - &#9743; {number}</p>
       <div>
         <button
