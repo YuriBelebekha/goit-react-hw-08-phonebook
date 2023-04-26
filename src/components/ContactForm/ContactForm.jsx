@@ -4,11 +4,14 @@ import { selectContacts } from 'redux/contacts/contactsSelectors';
 import { addContact } from 'redux/contacts/contactsOperations';
 
 import shortid from 'shortid';
+// TOAST
 import { toast } from 'react-toastify';
 import { ToastOptions } from 'services/toast-options';
 
+// MUI STYLES
 import styled from '@emotion/styled';
 import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 
 import Button from '@mui/material/Button';
@@ -94,7 +97,16 @@ function ContactForm() {
   };
   
   return (
-    <Box component="form" onSubmit={handleSubmit} autoComplete="off" sx={{ m: '80px 10px 50px auto', maxWidth: '500px', color: '#fff' }}>
+    <Box
+      component="form"
+      onSubmit={handleSubmit}
+      autoComplete="off"
+      sx={{ m: '80px 10px 30px auto', maxWidth: '500px', color: '#fff' }}
+    >
+      <Typography variant='h5' component='h1' sx={{ fontWeight: 'bold', color: '#00f4ff', mb: '30px' }}> 
+        Add Contact Form
+      </Typography>
+
       <CssTextField id="outlined-basic"
         type="text"
         name="name"        
@@ -130,39 +142,6 @@ function ContactForm() {
         </Button>        
       </Stack>      
     </Box>
-
-
-
-
-
-    // <form onSubmit={handleSubmit} >
-    //   <label>
-    //     Name
-    //     <input
-    //       type="text"
-    //       name="name"
-    //       pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-    //       title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-    //       value={name}
-    //       onChange={handleChange}
-    //       required            
-    //     />
-    //   </label>
-
-    //   <label>
-    //     Number
-    //     <input
-    //       type="tel"
-    //       name="number"
-    //       pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-    //       title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-    //       value={number}
-    //       onChange={handleChange}
-    //       required            
-    //     />
-    //   </label>
-    //   <button type="submit">Add contact</button>
-    // </form>
   )
 }
 

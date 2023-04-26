@@ -1,5 +1,6 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
+// MUI STYLES
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 

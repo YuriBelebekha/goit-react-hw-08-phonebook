@@ -1,6 +1,7 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 
+// MUI STYLES
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 

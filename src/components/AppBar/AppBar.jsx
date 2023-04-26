@@ -3,6 +3,7 @@ import { UserMenu } from '../UserMenu';
 import { AuthNav } from '../AuthNav';
 import { useAuth } from 'hooks';
 
+// MUI STYLES
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 
