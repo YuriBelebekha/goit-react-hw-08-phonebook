@@ -5,12 +5,15 @@ import { selectContacts, selectIsLoading } from 'redux/contacts/contactsSelector
 import { fetchContacts } from 'redux/contacts/contactsOperations';
 import { getFilter } from 'redux/filterSlice';
 
+import Box from '@mui/material/Box';
+// import List from '@mui/material/List';
+
 const ContactsList = () => {  
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   const isLoading = useSelector(selectIsLoading);
   const filter = useSelector(getFilter);  
-  
+  // console.log(contacts)
   useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
@@ -26,12 +29,16 @@ const ContactsList = () => {
   };  
 
   return (
-    <ul>
-      {isLoading && <b>Loading contacts...</b>}
+    <Box
+      component="ul"
+      autoComplete="off"
+      sx={{ display: 'flex', flexDirection: 'column', m: '0 10px 0 auto', maxWidth: '500px', color: '#fff' }}
+    >
+      {isLoading && <b>Refreshing contacts...</b>}
       {contacts && getFilteredContacts().map(contact => (
-        <ContactsListItem key={contact.id} {...contact} /> //
+        <ContactsListItem key={contact.id} {...contact} /> 
       ))}     
-    </ul>
+    </Box>
   )
 };
 
