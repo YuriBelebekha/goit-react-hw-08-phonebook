@@ -13,6 +13,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from "@mui/icons-material/Delete";
+import AutoDeleteIcon from '@mui/icons-material/AutoDelete';
 
 const ContactsListItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
@@ -44,7 +45,7 @@ const ContactsListItem = ({ id, name, number }) => {
           aria-label="delete"
           sx={{ color: "#c9c9c9", boxShadow: 3, border: 1, borderColor: "orange" }}
         >
-          <DeleteIcon />
+          {isDeleting ? <AutoDeleteIcon sx={{ color: "orange" }} /> : <DeleteIcon />}
         </IconButton>
       }
     >          
