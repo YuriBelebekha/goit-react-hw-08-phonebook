@@ -6,7 +6,6 @@ import { fetchContacts } from 'redux/contacts/contactsOperations';
 import { getFilter } from 'redux/filterSlice';
 
 import Box from '@mui/material/Box';
-// import List from '@mui/material/List';
 import { Virtuoso } from 'react-virtuoso';
 
 const ContactsList = () => {  
@@ -27,9 +26,7 @@ const ContactsList = () => {
         contact.name.toLowerCase().includes(normalizedFilter)
       );
     }
-  };  
-  
-  // console.log(getFilteredContacts())
+  };    
 
   return (
     <Box
@@ -40,12 +37,13 @@ const ContactsList = () => {
       {isLoading && <b>Refreshing contacts...</b>}
 
       {contacts &&
-        <Virtuoso          
+        <Virtuoso
           style={{ height: '190px' }}
           totalCount={contacts.length}
-          itemContent={() => getFilteredContacts().map(contact => (    
-            <ContactsListItem key={contact.id} {...contact} /> 
-          ))}
+          data={getFilteredContacts()}
+          itemContent={(_index, contact) => {
+            return (<ContactsListItem key={contact.id} {...contact} />)
+          }}
         />
       }
     </Box>
