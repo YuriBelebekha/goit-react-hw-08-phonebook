@@ -107,23 +107,27 @@ function ContactForm() {
         Add Contact Form
       </Typography>
 
-      <CssTextField id="outlined-basic"
+      <CssTextField
+        id="outlined-basic"
         type="text"
         name="name"        
         label="Name"
         onChange={handleChange}        
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+        inputProps={{ pattern: "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$" }}
         variant="outlined" 
         size="small"
         fullWidth
         required
       />
       
-      <CssTextField id="outlined-basic"
+      <CssTextField
+        id="outlined-basic"
         type="tel"
         name="number"        
         label="Number"
-        onChange={handleChange}        
+        onChange={handleChange}  
+        inputProps={{ pattern: "\\+?\\d{1,4}?[-.\\s]?\\(?\\d{1,3}?\\)?[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,4}[-.\\s]?\\d{1,9}" }}
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         variant="outlined" 
         size="small"
@@ -146,38 +150,3 @@ function ContactForm() {
 }
 
 export default ContactForm;
-
-
-
-
-
-// return (
-//     <form onSubmit={handleSubmit} >
-//       <label>
-//         Name
-//         <input
-//           type="text"
-//           name="name"
-//           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-//           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-//           value={name}
-//           onChange={handleChange}
-//           required            
-//         />
-//       </label>
-
-//       <label>
-//         Number
-//         <input
-//           type="tel"
-//           name="number"
-//           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-//           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-//           value={number}
-//           onChange={handleChange}
-//           required            
-//         />
-//       </label>
-//       <button type="submit">Add contact</button>
-//     </form>
-//   )
