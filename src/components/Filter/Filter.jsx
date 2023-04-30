@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setFilter, getFilter } from 'redux/filterSlice';
 
+import PropTypes from 'prop-types';
+
 // MUI STYLES
 import styled from '@emotion/styled';
 import Box from '@mui/material/Box';
@@ -65,3 +67,8 @@ const Filter = () => {
 };
 
 export default Filter;
+
+Filter.propTypes = {
+  filter: PropTypes.string,
+  onChange: PropTypes.func,
+};

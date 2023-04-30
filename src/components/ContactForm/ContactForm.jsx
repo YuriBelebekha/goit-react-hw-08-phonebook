@@ -4,6 +4,7 @@ import { selectContacts } from 'redux/contacts/contactsSelectors';
 import { addContact } from 'redux/contacts/contactsOperations';
 
 import shortid from 'shortid';
+import PropTypes from 'prop-types';
 // TOAST
 import { toast } from 'react-toastify';
 import { ToastOptions } from 'services/toast-options';
@@ -150,3 +151,8 @@ function ContactForm() {
 }
 
 export default ContactForm;
+
+ContactForm.propTypes = {
+  name: PropTypes.string,
+  number: PropTypes.string,
+};

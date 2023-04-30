@@ -5,6 +5,9 @@ import { selectContacts, selectIsLoading } from 'redux/contacts/contactsSelector
 import { fetchContacts } from 'redux/contacts/contactsOperations';
 import { getFilter } from 'redux/filterSlice';
 
+import PropTypes from 'prop-types';
+
+// MUI STYLES
 import Box from '@mui/material/Box';
 import { Virtuoso } from 'react-virtuoso';
 
@@ -51,3 +54,14 @@ const ContactsList = () => {
 };
 
 export default ContactsList;
+
+ContactsList.propTypes = {  
+  contacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+  onDeleteContact: PropTypes.func,
+};

@@ -4,6 +4,8 @@ import { deleteContact } from 'redux/contacts/contactsOperations';
 import { toast } from 'react-toastify';
 import { ToastOptions } from 'services/toast-options';
 
+import PropTypes from 'prop-types';
+
 // MUI STYLES
 import ListItem from "@mui/material/ListItem";
 import Tooltip from '@mui/material/Tooltip';
@@ -56,3 +58,10 @@ const ContactsListItem = ({ id, name, number }) => {
 };
 
 export default ContactsListItem;
+
+ContactsListItem.propTypes = {
+  id: PropTypes.string,
+  name: PropTypes.string,
+  number: PropTypes.string,
+  onDeleteContact: PropTypes.func,
+}
